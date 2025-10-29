@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ольга Коренкова — дизайнер интерьеров</title>
+  <meta name="description" content="Ольга Коренкова — дизайнер интерьеров. Комфорт в каждом штрихе. Разработка дизайн-проекта, подбор мебели, 3D-визуализация, авторский надзор." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22white%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2270%22 text-anchor=%22middle%22 fill=%22%23FF3CAC%22 font-family=%22Arial%22>O</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff; --accent:#FF3CAC; --accent-dark:#e61e8f; --text:#222; --muted:#666; --soft:rgba(0,0,0,0.06);
+      --admin-bg: #171717; --admin-panel: #1f1f1f;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:'Manrope',system-ui,Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04);z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Great Vibes',cursive;color:var(--accent);font-size:30px}
+    .menu{display:flex;gap:14px;align-items:center}
+    .menu a{font-weight:600;text-decoration:none;color:var(--text);padding:8px 10px;border-radius:10px;transition:transform .18s,background .18s}
+    .menu a:hover{transform:translateY(-4px);background:rgba(255,60,172,0.06)}
+    .btn{background:var(--accent);color:white;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 24px rgba(255,60,172,0.12);transition:transform .18s,box-shadow .18s}
+    .btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 40px rgba(255,60,172,0.18)}
+    .hero{display:flex;gap:32px;align-items:center;padding:48px 0;flex-wrap:wrap}
+    .hero-left{flex:1;min-width:280px}
+    h1{font-family:'Great Vibes',cursive;font-size:56px;margin:0;line-height:1}
+    .lead{color:var(--muted);font-size:18px}
+    .img-frame{border-radius:22px;overflow:hidden;box-shadow:0 12px 36px var(--soft);max-width:620px;width:100%;transition:transform .25s}
+    .img-frame:hover{transform:scale(1.02)}
+    .img-frame img{width:100%;height:420px;object-fit:cover;display:block}
+    .section{padding:56px 0}
+    .about{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .about img{width:180px;height:220px;object-fit:cover;border-radius:12px;box-shadow:0 10px 30px var(--soft);transition:transform .2s}
+    .about img:hover{transform:scale(1.05)}
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:white;border-radius:12px;padding:18px;box-shadow:0 8px 24px var(--soft);transition:transform .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+    .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .adv-icon{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;background:linear-gradient(180deg,var(--accent),var(--accent-dark));color:white;font-size:36px;box-shadow:0 10px 30px rgba(255,60,172,0.12);transition:transform .18s,filter .18s}
+    .gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+    .gallery img,.gallery video{width:100%;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px var(--soft);transition:transform .18s}
+    .gallery img:hover,.gallery video:hover{transform:scale(1.03)}
+    .cta{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(90deg, rgba(255,60,172,0.06), rgba(255,60,172,0.02));padding:20px;border-radius:12px}
+    .contact-form{display:grid;gap:12px;max-width:720px}
+    input.input,textarea.input{padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);font-size:15px}
+    input.input:focus,textarea.input:focus{outline:none;box-shadow:0 8px 24px rgba(255,60,172,0.08);border-color:var(--accent)}
+    .muted{color:var(--muted)}
+    footer{padding:28px 0;border-top:1px solid rgba(0,0,0,0.04);color:var(--muted);font-size:14px}
+    /* admin styles (dark) */
+    .admin-shell{background:var(--admin-bg);color:#eee;min-height:100vh;padding:24px}
+    .admin-panel{max-width:1100px;margin:0 auto;background:var(--admin-panel);padding:18px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+    .admin-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .admin-input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+    .admin-btn{background:linear-gradient(90deg,var(--accent),var(--accent-dark));color:white;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+    .small{font-size:13px;color:var(--muted)}
+    /* fade-in */
+    .fade{opacity:0;transform:translateY(10px);transition:all .6s ease}
+    .fade.show{opacity:1;transform:none}
+    @media (max-width:900px){h1{font-size:40px}.img-frame img{height:320px}.about img{width:160px;height:200px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Ольга Коренкова</div>
+      <nav class="menu" aria-label="Меню">
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#why">Почему со мной</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contacts">Контакты</a>
+        <a id="adminLink" href="/admin" style="display:none">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="siteMain">
+    <section class="hero container fade">
+      <div class="hero-left">
+        <h1 id="siteTitle">Комфорт в каждом штрихе</h1>
+        <p class="lead" id="siteSubtitle">Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.</p>
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn" id="openContact">Оставить заявку</button>
+          <button class="btn" id="openAdminDirect">Войти (admin)</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="img-frame" id="heroFrame">
+          <img id="heroImg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop&s=6b8b9c2c1b5cb2b6f0a8d9b1f1e7a2b6" alt="кухня" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container fade">
+      <div class="about">
+        <img id="aboutPhoto" src="https://images.unsplash.com/photo-1548438292-91d3d97b7b6b?q=80&w=800&auto=format&fit=crop&s=7d4a6a5e3f5c7a1e4e3d9f8c2b7a9c8d" alt="Ольга" />
+        <div>
+          <h2>Обо мне</h2>
+          <p id="aboutText">Я — Ольга Коренкова, дизайнер интерьеров с более чем 8-летним опытом. Работала с частными клиентами и небольшими девелоперскими проектами.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section container fade">
+      <h2>Что я делаю</h2>
+      <ul id="servicesList" class="services">
+      </ul>
+    </section>
+
+    <section id="why" class="section container fade">
+      <h2>Почему со мной комфортно</h2>
+      <div id="advantages" class="advantages" style="margin-top:18px"></div>
+    </section>
+
+    <section id="portfolio" class="section container fade">
+      <h2>Портфолио</h2>
+      <div id="portfolioGrid" class="gallery" style="margin-top:12px"></div>
+    </section>
+
+    <section id="models" class="section container fade">
+      <h2>Моделирование мебели</h2>
+      <div id="modelsGrid" class="gallery" style="margin-top:12px"></div>
+    </section>
+
+    <section id="clients" class="section container fade">
+      <h2>Для клиентов</h2>
+      <p id="clientsText">Интерьер — это не только стены и мебель. Это эмоции, уют и отражение вашей личности.</p>
+    </section>
+
+    <section id="contacts" class="section container fade">
+      <h2>Контакты</h2>
+      <form id="contactForm" class="contact-form" onsubmit="return false;">
+        <input id="cname" class="input" placeholder="Имя" required />
+        <input id="cphone" class="input" placeholder="Телефон" required />
+        <input id="cemail" class="input" placeholder="Email" />
+        <textarea id="cmessage" class="input" placeholder="Коротко о проекте"></textarea>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button id="sendBtn" class="btn">Отправить</button>
+          <div id="formStatus" class="muted"></div>
+        </div>
+      </form>
+    </section>
+
+    <section class="section container fade">
+      <div class="cta">
+        <div>
+          <h2 style="margin:0">Готовы к интерьеру вашей мечты?</h2>
+          <p class="small muted" style="margin:6px 0 0">Оставьте заявку — я свяжусь и предложу следующий шаг.</p>
+        </div>
+        <div><a href="#contacts" class="btn">Связаться</a></div>
+      </div>
+    </section>
+
+    <footer class="container fade">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <small>© 2025 Ольга Коренкова. Все права защищены.</small>
+        <small class="muted">Демонстрационная версия — данные сохраняются в localStorage / Vercel</small>
+      </div>
+    </footer>
+  </main>
+
+  <div id="adminRoot" style="display:none">
+    <div class="admin-shell">
+      <div class="admin-panel" id="adminPanel">
+        <h2>Админка — Ольга Коренкова</h2>
+        <div id="authWrap">
+          <p class="small">Вход администратора (demo). Пароль хранится на сервере.</p>
+          <div class="admin-row">
+            <input id="adminPass" class="admin-input" placeholder="Пароль" type="password" />
+            <button id="adminLoginBtn" class="admin-btn">Войти</button>
